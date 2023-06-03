@@ -1,0 +1,21 @@
+header{
+    display: flex;
+    background-color: black;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    position: relative;
+    .btnHeaderRight{
+        position: absolute;
+        right: 0;
+        height: 100%;
+    }
+    button{
+        border: none;
+        background-color: rgb(28, 81, 107);
+        height: 100%;
+        cursor: pointer;
+        width: 250px;
+    }
+}
