@@ -1,9 +1,10 @@
 import React from 'react';
+import "./employeeList.scss"
 
 const EmployeeList = () => {
     return (
         <div>
-            EmployeeList
+            <h2>EmployeeList</h2>
         </div>
     );
 };

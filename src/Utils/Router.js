@@ -2,8 +2,8 @@ import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Layout from './Layout';
 import Error from './Error';
-import EmployeeCreate from '../Pages/EmployeeCreate';
-import EmployeeList from '../Pages/EmployeeList';
+import EmployeeCreate from '../Pages/EmployeeCreate/EmployeeCreate';
+import EmployeeList from '../Pages/EmployeeList/EmployeeList';
 
 const Router = () => {
     return (

@@ -1,3 +1,6 @@
+@import "../../Styles/breakpoint.scss";
+
+
 header{
     display: flex;
     background-color: black;
@@ -17,5 +20,11 @@ header{
         height: 100%;
         cursor: pointer;
         width: 250px;
+        @include md{
+            width: 100px;
+        }
+        @include sm{
+            width: 80px;
+        }
     }
 }
