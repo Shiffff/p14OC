@@ -1,8 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
-import EmployeeReducer from "../Feature/employee.slice";
+import EmployeeListReducer from "../Feature/employeeList.slice";
+import EmployeeFormReducer from "../Feature/employeeForm.slice";
 
 export default configureStore({
   reducer: {
-    Employee: EmployeeReducer,
+    EmployeeList: EmployeeListReducer,
+    EmployeeForm: EmployeeFormReducer,
   },
 });

@@ -1,8 +1,12 @@
-footer{
-    position: fixed;
-    width: 100%;
-    background-color: black;
-    text-align: center;
-    color: white;
-    bottom: 0;
+footer {
+  display: flex;
+  position: absolute;
+  width: 100%;
+  background-color: black;
+  color: rgb(123, 150, 121);
+  bottom: 0;
+  height: 80px;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
 }
