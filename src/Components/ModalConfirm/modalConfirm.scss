@@ -1,0 +1,40 @@
+.modalContainer {
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  background-color: rgb(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  .modal {
+    background-color: white;
+    width: 300px;
+    height: 40px;
+    position: fixed;
+    display: flex;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    border-radius: 5px;
+  }
+  .close {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    width: 30px;
+    height: 30px;
+    background-color: rgb(123, 150, 121);
+    color: white;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+}

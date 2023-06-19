@@ -9,14 +9,38 @@ import {
   states,
   department,
 } from "../../Utils/Data";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import InputOptions from "./inputOptions/InputOptions";
+import { setEmployeeFormData } from "../../Feature/employeeForm.slice";
+import { setShowModal } from "../../Feature/modalToggle.slice";
+import { setEmployeeListData } from "../../Feature/employeeList.slice";
 
 const Form = () => {
+  const dispatch = useDispatch();
+  const [allValue, setAllValue] = useState(null);
   const formData = useSelector((state) => state.EmployeeForm);
+
   const handleCheckSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
+    const values = Object.values(formData);
+    const allValuesNotNull = values.every(
+      (value) => value !== null && value.length !== 0
+    );
+    if (allValuesNotNull) {
+      setAllValue(true);
+      dispatch(setEmployeeListData(formData));
+      dispatch(setShowModal(true));
+    } else {
+      setAllValue(false);
+    }
+  };
+
+  const inputOptionsChange = (event) => {
+    const { name, value } = event.target;
+    const formData = {
+      [name]: value,
+    };
+    dispatch(setEmployeeFormData(formData));
   };
 
   return (
@@ -31,11 +55,24 @@ const Form = () => {
             <legend>Adress</legend>
             <InputText input={inputList.street} />
             <InputText input={inputList.city} />
-            <InputOptions data={states} name={"State"} />
+            <InputOptions
+              data={states}
+              name={"State"}
+              onSelect={inputOptionsChange}
+            />
             <InputText input={inputList.zipCode} />
           </fieldset>
         </div>
-        <InputOptions data={department} name={"Department"} />
+        <InputOptions
+          data={department}
+          name={"Department"}
+          onSelect={inputOptionsChange}
+        />
+        {allValue === false && (
+          <p className="errMsg">
+            Certaines valeurs sont manquantes. Veuillez remplir tous les champs.
+          </p>
+        )}
         <button className="saveBtn">Save</button>
       </form>
     </div>

@@ -1,16 +1,8 @@
 import React from "react";
-import { useDispatch } from "react-redux";
-import { setEmployeeFormData } from "../../../Feature/employeeForm.slice";
 
-const InputOptions = ({ data, name }) => {
-  const dispatch = useDispatch();
-
+const InputOptions = ({ data, name, onSelect }) => {
   const handleChange = (event) => {
-    const { name, value } = event.target;
-    const formData = {
-      [name]: value,
-    };
-    dispatch(setEmployeeFormData(formData));
+    onSelect(event);
   };
 
   return (
