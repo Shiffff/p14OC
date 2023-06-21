@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setEmployeeFormData } from "../../../Feature/employeeForm.slice";
 import { Formater } from "../../../Utils/formatData";
 
 const InputDatePicker = ({ dateEl }) => {
   const dispatch = useDispatch();
+  const data = useSelector((state) => state.EmployeeForm);
 
   const [date, setDate] = useState();
 
@@ -26,6 +27,7 @@ const InputDatePicker = ({ dateEl }) => {
       <br />
       <DatePicker
         selected={date}
+        value={data[dateEl.id]}
         onChange={(e) => handleChange({ name: dateEl.id, value: e })}
         peekNextMonth
         showMonthDropdown

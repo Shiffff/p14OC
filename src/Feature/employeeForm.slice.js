@@ -3,22 +3,27 @@ import { createSlice } from "@reduxjs/toolkit";
 export const employeeFormSlice = createSlice({
   name: "employeeForm",
   initialState: {
-    firstName: null,
-    lastName: null,
+    firstName: "",
+    lastName: "",
     dateOfBirth: null,
     dateOfStart: null,
-    street: null,
-    city: null,
+    street: "",
+    city: "",
     State: "Alabama",
-    zipCode: null,
+    abbreviation: "AL",
+    zipCode: "",
     Department: "Sales",
   },
   reducers: {
     setEmployeeFormData: (state, { payload }) => {
       return { ...state, ...payload };
     },
+    setResetEmployeeForm: () => {
+      return employeeFormSlice.reducer(undefined, {});
+    },
   },
 });
 
-export const { setEmployeeFormData } = employeeFormSlice.actions;
+export const { setEmployeeFormData, setResetEmployeeForm } =
+  employeeFormSlice.actions;
 export default employeeFormSlice.reducer;

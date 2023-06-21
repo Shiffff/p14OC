@@ -1,12 +1,12 @@
 import React from "react";
 import "./employeeList.scss";
-import Table from "../../Components/Table/Table";
+import TableComp from "../../Components/Table/TableComp";
 
 const EmployeeList = () => {
   return (
     <div>
-      <h2>EmployeeList</h2>
-      <Table />
+      <h2>Current Employees</h2>
+      <TableComp />
     </div>
   );
 };

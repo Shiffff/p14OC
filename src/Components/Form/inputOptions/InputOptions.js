@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 
-const InputOptions = ({ data, name, onSelect }) => {
+const InputOptions = ({ data, name, onSelect, defaultValue }) => {
   const handleChange = (event) => {
     onSelect(event);
   };
@@ -9,7 +9,12 @@ const InputOptions = ({ data, name, onSelect }) => {
     <div>
       <label htmlFor={name}>{name}</label>
       <br />
-      <select name={name} id={name} onChange={(e) => handleChange(e)}>
+      <select
+        name={name}
+        value={defaultValue !== null ? defaultValue : ""}
+        id={name}
+        onChange={(e) => handleChange(e)}
+      >
         {data.map((el, index) => {
           return <option key={index}>{el}</option>;
         })}

@@ -1,11 +1,11 @@
 import React from "react";
 import "./modalConfirm.scss";
 
-const ModalConfirm = ({ closeFct }) => {
+const ModalConfirm = ({ text, closeFct }) => {
   return (
     <div className="modalContainer">
       <div className="modal">
-        <p>Employee Created!</p>
+        <p>{text}</p>
         <p onClick={closeFct} className="close">
           X
         </p>

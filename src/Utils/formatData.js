@@ -1,3 +1,5 @@
+import { abbreviation } from "./Data";
+
 export class Formater {
   static formatDate(date) {
     const month = date.getMonth() + 1;
@@ -23,5 +25,15 @@ export class Formater {
         return isValid;
       }
     }
+  }
+  static abbreviationChoice(city) {
+    let cityAbbreviation = null;
+    for (let i = 0; i < abbreviation.length; i++) {
+      if (abbreviation[i].name === city) {
+        cityAbbreviation = abbreviation[i].abbreviation;
+        break;
+      }
+    }
+    return cityAbbreviation;
   }
 }

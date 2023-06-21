@@ -14,7 +14,9 @@ const EmployeeCreate = () => {
 
   return (
     <div>
-      {showModal && <ModalConfirm closeFct={closeModal} />}
+      {showModal && (
+        <ModalConfirm text={"Employee Created!"} closeFct={closeModal} />
+      )}
       <h2>Create Employee</h2>
       <Form />
     </div>

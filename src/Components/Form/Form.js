@@ -9,9 +9,13 @@ import {
   states,
   department,
 } from "../../Utils/Data";
+import { Formater } from "../../Utils/formatData";
 import { useDispatch, useSelector } from "react-redux";
 import InputOptions from "./inputOptions/InputOptions";
-import { setEmployeeFormData } from "../../Feature/employeeForm.slice";
+import {
+  setEmployeeFormData,
+  setResetEmployeeForm,
+} from "../../Feature/employeeForm.slice";
 import { setShowModal } from "../../Feature/modalToggle.slice";
 import { setEmployeeListData } from "../../Feature/employeeList.slice";
 
@@ -34,8 +38,19 @@ const Form = () => {
       setAllValue(false);
     }
   };
+  const handleClear = (e) => {
+    e.preventDefault();
+    dispatch(setResetEmployeeForm());
+  };
 
   const inputOptionsChange = (event) => {
+    if (event.target.name === "State") {
+      const abbreviationEl = Formater.abbreviationChoice(event.target.value);
+      const formData = {
+        abbreviation: abbreviationEl,
+      };
+      dispatch(setEmployeeFormData(formData));
+    }
     const { name, value } = event.target;
     const formData = {
       [name]: value,
@@ -45,7 +60,7 @@ const Form = () => {
 
   return (
     <div className="formContainer">
-      <form onSubmit={(e) => handleCheckSubmit(e)}>
+      <form>
         <InputText input={inputList.firstName} />
         <InputText input={inputList.lastName} />
         <InputDatePicker dateEl={inputDatePickerList.dateOfBirth} />
@@ -58,6 +73,7 @@ const Form = () => {
             <InputOptions
               data={states}
               name={"State"}
+              defaultValue={formData.State}
               onSelect={inputOptionsChange}
             />
             <InputText input={inputList.zipCode} />
@@ -66,6 +82,7 @@ const Form = () => {
         <InputOptions
           data={department}
           name={"Department"}
+          defaultValue={formData.Department}
           onSelect={inputOptionsChange}
         />
         {allValue === false && (
@@ -73,7 +90,12 @@ const Form = () => {
             Certaines valeurs sont manquantes. Veuillez remplir tous les champs.
           </p>
         )}
-        <button className="saveBtn">Save</button>
+        <button className="saveBtn" onClick={(e) => handleCheckSubmit(e)}>
+          Save
+        </button>
+        <button onClick={(e) => handleClear(e)} className="saveBtn">
+          Clear
+        </button>
       </form>
     </div>
   );

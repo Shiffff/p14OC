@@ -1,27 +1,23 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+
 import { setEmployeeFormData } from "../../../Feature/employeeForm.slice";
 import { Formater } from "../../../Utils/formatData";
 
 const InputText = ({ input }) => {
   const dispatch = useDispatch();
+  const data = useSelector((state) => state.EmployeeForm);
   const [isValid, setIsValid] = useState(true);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
     const regexpResult = Formater.inputRegexp(value, input.id);
     setIsValid(regexpResult);
-    if (regexpResult) {
-      const formData = {
-        [name]: value,
-      };
-      dispatch(setEmployeeFormData(formData));
-    } else {
-      const formData = {
-        [name]: "",
-      };
-      dispatch(setEmployeeFormData(formData));
-    }
+
+    const formData = {
+      [name]: value,
+    };
+    dispatch(setEmployeeFormData(formData));
   };
 
   return (
@@ -30,6 +26,7 @@ const InputText = ({ input }) => {
       <br />
       <input
         type={input.type}
+        value={data[input.id]}
         name={input.id}
         id={input.id}
         onChange={handleChange}
