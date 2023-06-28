@@ -9,7 +9,7 @@
     "@testing-library/user-event": "^13.5.0",
     "ag-grid-community": "^30.0.2",
     "ag-grid-react": "^30.0.2",
-    "modal_shiffff2": "^0.0.3",
+    "modal_shiffff": "^1.0.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.7",
