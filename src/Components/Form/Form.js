@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./form.scss";
-import "react-datepicker/dist/react-datepicker.css";
 import InputText from "./inputText/InputText";
 import InputDatePicker from "./inputDatePicker/InputDatePicker";
 import {

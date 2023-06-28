@@ -5,8 +5,8 @@ export const employeeFormSlice = createSlice({
   initialState: {
     firstName: "",
     lastName: "",
-    dateOfBirth: null,
-    dateOfStart: null,
+    dateOfBirth: "",
+    dateOfStart: "",
     street: "",
     city: "",
     State: "Alabama",

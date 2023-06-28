@@ -2,13 +2,20 @@ import { abbreviation } from "./Data";
 
 export class Formater {
   static formatDate(date) {
-    const month = date.getMonth() + 1;
-    const day = date.getDate();
-    const year = date.getFullYear();
-    return `${month.toString().padStart(2, "0")}/${day
-      .toString()
-      .padStart(2, "0")}/${year}`;
+    const dateParts = date.split("-");
+    const year = dateParts[0];
+    const month = dateParts[1];
+    const day = dateParts[2];
+    return `${month}/${day}/${year}`;
   }
+  static formatDateToCreate(date) {
+    const dateParts = date.split("/");
+    const year = dateParts[2];
+    const month = dateParts[0];
+    const day = dateParts[1];
+    return `${year}-${month}-${day}`;
+  }
+
   static inputRegexp(data, id) {
     if (data.length) {
       if (id === "firstName" || id === "lastName" || id === "city") {

@@ -2,7 +2,7 @@ import React from "react";
 import "./employeeCreate.scss";
 import Form from "../../Components/Form/Form";
 import { useDispatch, useSelector } from "react-redux";
-import ModalConfirm from "../../Components/ModalConfirm/ModalConfirm";
+import ModalConfirm from "modal_shiffff2";
 import { setShowModal } from "../../Feature/modalToggle.slice";
 
 const EmployeeCreate = () => {
