@@ -10,7 +10,7 @@ import {
 } from "../../Utils/Data";
 import { Formater } from "../../Utils/formatData";
 import { useDispatch, useSelector } from "react-redux";
-import InputOptions from "./inputOptions/InputOptions";
+import InputOptions from "optionlist_shiffff";
 import {
   setEmployeeFormData,
   setResetEmployeeForm,
