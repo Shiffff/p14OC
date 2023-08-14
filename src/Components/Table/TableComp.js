@@ -13,8 +13,6 @@ const TableComp = () => {
   const [columnDefs, setColumnDefs] = useState([]);
   const [rowData] = useState(tableData);
 
-  console.log(rowData);
-
   useEffect(() => {
     if (tableData[0]) {
       const columnNameArray = Object.keys(tableData[0]);
